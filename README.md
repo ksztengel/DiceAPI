@@ -51,5 +51,7 @@ The game should be implemented as a server component and a client component with
 
 # Details
 *Please make the code and all accessory assets available by zipping them.
+
 *Use only original code for the core of the assignment.
+
 *You can use any library for DOM manipulation, server side integration, client/server communication, serialization ...
