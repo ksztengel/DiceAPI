@@ -3,7 +3,12 @@ var router = express.Router();
 
 router.post('/', function(req, res) {
   //Logic goes here
+  console.log("in the dice route", req.body.data)
 
-  // return Math.floor(Math.random()*X +1)
+  // var example = res.json()
+  // console.log(example);
 
-}
+
+})
+
+module.exports = router
