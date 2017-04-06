@@ -8,9 +8,14 @@ router.post('/', function(req, res) {
 
   let dice = req.body.data
 
-  sides = parseInt(dice.sides)
+  N = parseInt(dice.dice)
+  X = parseInt(dice.sides)
+  D = parseInt(dice.drop)
+  K = parseInt(dice.keep)
+  E = parseInt(dice.explosive)
+  L = parseInt(dice.literal)
 
-  result = Math.floor(Math.random()*sides)+1
+  result = Math.floor(Math.random()*X)+1
 
   console.log(result)
 
@@ -19,8 +24,8 @@ router.post('/', function(req, res) {
 })
 
 router.get('/', function(req,res){
-console.log(result);
-  return res.json(result)
+  console.log(result);
+ res.json(result)
 
 })
 
