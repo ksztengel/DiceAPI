@@ -4,16 +4,18 @@ app.controller('DiceController', function($scope, DiceService, $http) {
 
 
     $scope.submitDice = function(data) {
-
         console.log("data", data);
         return $http.post('http://localhost:3000/dice', {
                 data
             })
-            .then(result => {
-                console.log(result)
+            .then(response => {
+              $scope.result = response.data.result
+              $scope.result2 = response.data.result2
+
+                console.log($scope.result, $scope.result2)
             })
 
-    }
+          }
     // $scope.diceForm.$setPristine()
 
 })
