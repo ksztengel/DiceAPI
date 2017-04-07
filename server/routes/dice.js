@@ -29,8 +29,21 @@ router.post('/', function(req, res) {
       }
       return sum
     }
-
     let result2 = NdX(N,X)
+
+    function NdXdD (N,X,D){
+
+      let drop = [];
+      let diceRoll = 0
+      for (var i = 0; i < N; i++) {
+        diceRoll = Math.floor(Math.random()*X)+1
+        drop.push(diceRoll)
+        console.log(drop);
+      }
+        return Math.max(...drop)
+    }
+
+    let result3 = NdXdD(N,X,D)
     //var NdXdD = N*(Math.floor(Math.random()*X)+1)-D
     // console.log(NdXdD);
     //
@@ -39,7 +52,7 @@ router.post('/', function(req, res) {
     //
     // var NdXdE = N*(Math.floor(Math.random()*X)+1)
 
-    res.json({ result: dX, result2: result2 })
+    res.json({ result: dX, result2: result2, result3: result3 })
 
 })
 
