@@ -41,7 +41,7 @@ router.post('/', function(req, res) {
                 return a - b;
             })
 
-            console.log(drop);
+          console.log(drop);
 
         }
         return drop.slice(D).reduce(function(acc, val) {
@@ -82,5 +82,16 @@ router.post('/', function(req, res) {
     })
 
 })
+
+// router.get('/', function(req, res) {
+//
+//   res.json({
+//       result: dX,
+//       result2: result2,
+//       result3: result3,
+//       result4: result4
+//   })
+//
+// })
 
 module.exports = router
