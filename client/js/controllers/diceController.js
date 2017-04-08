@@ -9,12 +9,12 @@ app.controller('DiceController', function($scope, DiceService, $http) {
                 data
             })
             .then(response => {
-              $scope.result = response.data.result
+              $scope.result1 = response.data.result1
               $scope.result2 = response.data.result2
               $scope.result3 = response.data.result3
               $scope.result4 = response.data.result4
 
-                console.log($scope.result, $scope.result2, $scope.result3, $scope.result4)
+                console.log($scope.result1, $scope.result2, $scope.result3, $scope.result4)
             })
 
           }
