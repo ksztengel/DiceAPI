@@ -26,11 +26,8 @@ router.post('/', function(req, res) {
     }
 
     let result = NdX(N, X)
-    console.log(result);
 
     let result1 = result[0]
-    console.log("result1", result1);
-
 
     let result2 = result.reduce(function(acc, val) {
         return acc + val;
@@ -49,25 +46,41 @@ router.post('/', function(req, res) {
     }, 0)
 
     function NdXxE(N, X, E, result) {
-        for (var i = 0; i < result.length; i++) {
-          console.log("result", result);
-            if (E >= result[i]) {
-                // roll again
-                let diceRoll = 0
-                let diceArray = []
-                for (var i = 0; i < N; i++) {
+        console.log(result);
+        let explode1 = result.reduce(function(acc, val) {
+                return acc + val;
+            }, 0)
+            console.log("explode1", explode1);
+
+        var rollAgain = []
+        for (var i = 0; i < result.length +1; i++) {
+            if (E <= result[i]) {
+                rollAgain.push(result.pop(result[i]))
+                console.log("rollAgain", rollAgain);
+
+                var diceRoll = 0
+                var diceArray = []
+                for (var i = 0; i < rollAgain.length+1; i++) {
+
                     diceRoll = Math.floor(Math.random() * X) + 1
-                    console.log("NXE", diceArray);
                     diceArray.push(diceRoll)
+                    console.log("diceArray", diceArray);
+                    let explode2 = diceArray.reduce(function(acc, val) {
+                            return acc + val;
+                        }, 0)
+                        console.log("explode2", explode2);
+                        return explode1 + explode2
                 }
+
             }
+
         }
 
-    // {
-    //     return result.reduce(function(acc, val) {
-    //         return acc + val;
-    //     }, 0)
     }
+
+
+
+
 
     let result5 = NdXxE(N, X, E, result)
     console.log("result5", result5);
@@ -80,8 +93,21 @@ router.post('/', function(req, res) {
         result4: result4,
         result5: result5
     })
-
 })
 
 
+
+
+// if (E < len[i]){
+//   rollAgain2 = result.shift(result[i])
+// let len2 = rollAgain2 - result.length
+//
+// let explode1 = return result.reduce(function(acc, val) {
+//         return acc + val;
+//     }, 0)
+//     console.log("explode", exlode1);
+//
+//   console.log("len", len);
+//   console.log("rollAgain", rollAgain);
+//   }
 module.exports = router
