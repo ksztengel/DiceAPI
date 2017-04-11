@@ -5,6 +5,19 @@ app.controller('DiceController', function($scope, DiceService, $http) {
 
     $scope.submitDice = function(data) {
         console.log("data", data);
+        if(data.drop>data.dice){
+
+          Materialize.toast('Number of drops must be less than number of dice to roll!', 4000)
+        }
+        if(data.keep>data.dice){
+
+          Materialize.toast('Number of keeps must be less than number of dice to roll!', 4000)
+        }
+        if(data.explosive>=data.sides){
+
+          Materialize.toast('Number of explosion must be less or equal to the number of sides!', 4000)
+        }
+
         return $http.post('http://localhost:3000/dice', {
                 data
             })
@@ -18,6 +31,6 @@ app.controller('DiceController', function($scope, DiceService, $http) {
             })
 
           }
-    // $scope.diceForm.$setPristine()
+    
 
 })

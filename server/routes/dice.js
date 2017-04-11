@@ -49,10 +49,28 @@ router.post('/', function(req, res) {
             }, 0)
 
             function NdXxE (N,X,E, result){
+              for (var i = 0; i < result.length; i++) {
+                if (E < result[i]){
+                return result.reduce(function(acc, val) {
+                    return acc + val;
+                }, 0)
+              }
+              else {
+                // roll again
+                let diceRoll = 0
+                let diceArray = []
+                for (var i = 0; i < N; i++) {
+                    diceRoll = Math.floor(Math.random() * X) + 1
+                    diceArray.push(diceRoll)
+                  }
+
+                }
+              }
+
+            }
 
 
-
-            }    // var NdXdE = N*(Math.floor(Math.random()*X)+1)
+             
 
                 res.json({
                     result1: result1,
