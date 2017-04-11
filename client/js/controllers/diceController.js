@@ -15,7 +15,7 @@ app.controller('DiceController', function($scope, DiceService, $http) {
         }
         if(data.explosive>=data.sides){
 
-          Materialize.toast('Number of explosion must be less or equal to the number of sides!', 4000)
+          Materialize.toast('Number to explode must be less or equal to the number of sides!', 4000)
         }
 
         return $http.post('http://localhost:3000/dice', {
@@ -31,6 +31,6 @@ app.controller('DiceController', function($scope, DiceService, $http) {
             })
 
           }
-    
+
 
 })
